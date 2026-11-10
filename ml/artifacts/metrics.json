@@ -1,0 +1,151 @@
+{
+  "model_class": "RandomForestClassifier",
+  "model_params": {
+    "n_estimators": 200,
+    "max_depth": null,
+    "min_samples_leaf": 2,
+    "n_jobs": -1,
+    "random_state": 42
+  },
+  "trained_at_utc": "2026-11-10T18:02:25.055999+00:00",
+  "train_seconds": 0.5,
+  "dataset": {
+    "source": "PhiUSIIL (UCI) + OpenPhish community feed",
+    "path": "data\\processed\\dataset.csv",
+    "n_train": 32000,
+    "n_test": 8000,
+    "n_phishing": 20000,
+    "n_legit": 20000
+  },
+  "metrics": {
+    "accuracy": 0.9746,
+    "precision": 0.9882,
+    "recall": 0.9607,
+    "f1": 0.9743,
+    "roc_auc": 0.9935
+  },
+  "confusion_matrix": [
+    [
+      3954,
+      46
+    ],
+    [
+      157,
+      3843
+    ]
+  ],
+  "feature_names": [
+    "url_length",
+    "hostname_length",
+    "has_ip",
+    "has_at",
+    "has_redirect",
+    "has_hyphen_in_domain",
+    "num_dots",
+    "num_subdomains",
+    "is_https",
+    "num_digits",
+    "digit_ratio",
+    "num_special_chars",
+    "suspicious_tld",
+    "brand_in_domain",
+    "is_shortener",
+    "has_punycode",
+    "has_port",
+    "path_depth",
+    "query_length",
+    "num_params",
+    "domain_entropy",
+    "suspicious_words"
+  ],
+  "feature_importances": [
+    {
+      "name": "is_https",
+      "importance": 0.3946
+    },
+    {
+      "name": "hostname_length",
+      "importance": 0.1021
+    },
+    {
+      "name": "num_dots",
+      "importance": 0.0942
+    },
+    {
+      "name": "url_length",
+      "importance": 0.0925
+    },
+    {
+      "name": "domain_entropy",
+      "importance": 0.0619
+    },
+    {
+      "name": "num_subdomains",
+      "importance": 0.0532
+    },
+    {
+      "name": "num_digits",
+      "importance": 0.0404
+    },
+    {
+      "name": "digit_ratio",
+      "importance": 0.0376
+    },
+    {
+      "name": "path_depth",
+      "importance": 0.029
+    },
+    {
+      "name": "suspicious_tld",
+      "importance": 0.0269
+    },
+    {
+      "name": "has_hyphen_in_domain",
+      "importance": 0.0263
+    },
+    {
+      "name": "num_special_chars",
+      "importance": 0.0151
+    },
+    {
+      "name": "query_length",
+      "importance": 0.0121
+    },
+    {
+      "name": "num_params",
+      "importance": 0.0052
+    },
+    {
+      "name": "is_shortener",
+      "importance": 0.0045
+    },
+    {
+      "name": "suspicious_words",
+      "importance": 0.0038
+    },
+    {
+      "name": "has_redirect",
+      "importance": 0.0003
+    },
+    {
+      "name": "brand_in_domain",
+      "importance": 0.0002
+    },
+    {
+      "name": "has_punycode",
+      "importance": 0.0001
+    },
+    {
+      "name": "has_ip",
+      "importance": 0.0001
+    },
+    {
+      "name": "has_port",
+      "importance": 0.0
+    },
+    {
+      "name": "has_at",
+      "importance": 0.0
+    }
+  ]
+}

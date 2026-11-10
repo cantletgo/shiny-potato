@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+venv/
+.venv/
+
+# Данные и артефакты модели
+data/raw/
+data/processed/*.csv
+
+# Артефакты модели оставляем (нужны для запуска), но большие файлы можно исключить:
+# ml/artifacts/*.joblib
+
+# IDE / ОС
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Pytest
+.pytest_cache/

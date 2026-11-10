@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Веб-система обнаружения фишинговых сайтов</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-icon">🛡️</span>
+        <div>
+          <h1>АнтиФишинг</h1>
+          <p class="subtitle">Веб-система обнаружения фишинговых сайтов</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="/docs" target="_blank" rel="noopener">API Docs</a>
+        <a href="#about" id="about-link">О модели</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Проверьте адрес сайта на фишинг</h2>
+      <p>Введите URL — модель машинного обучения проанализирует 22 признака адреса
+         и объяснит свой вердикт. Ссылки никуда не отправляются и не открываются.</p>
+
+      <form id="check-form" class="check-form" autocomplete="off">
+        <input
+          type="text"
+          id="url-input"
+          name="url"
+          placeholder="например, https://example.com/login"
+          spellcheck="false"
+          required
+        >
+        <button type="submit" id="check-btn">Проверить</button>
+      </form>
+
+      <div class="examples">
+        <span>Примеры:</span>
+        <button type="button" class="chip" data-url="https://www.google.com">google.com</button>
+        <button type="button" class="chip" data-url="https://yandex.ru">yandex.ru</button>
+        <button type="button" class="chip" data-url="http://paypal-login.verify-account.tk/update/confirm.php">поддельный «paypal»</button>
+        <button type="button" class="chip" data-url="http://secure-login.sberbank.id-verification.top/signin">поддельный «сбербанк»</button>
+      </div>
+    </section>
+
+    <section id="result" class="result hidden">
+      <div class="verdict-card" id="verdict-card">
+        <div class="verdict-main">
+          <div class="verdict-badge" id="verdict-badge">—</div>
+          <div class="verdict-text">
+            <div class="verdict-url" id="result-url"></div>
+            <div class="verdict-model" id="result-model"></div>
+          </div>
+          <div class="risk">
+            <div class="risk-value" id="risk-value">0%</div>
+            <div class="risk-caption">риск фишинга</div>
+          </div>
+        </div>
+        <div class="confidence-bar">
+          <div class="confidence-fill" id="confidence-fill"></div>
+        </div>
+        <div class="confidence-caption" id="confidence-caption"></div>
+      </div>
+
+      <div class="explanations hidden" id="explanations-block">
+        <h3>Что настораживает</h3>
+        <ul id="explanations-list"></ul>
+        <p class="no-warnings hidden" id="no-warnings">Подозрительных признаков в адресе не обнаружено.</p>
+      </div>
+
+      <details class="features" id="features-details">
+        <summary>Все признаки URL (22)</summary>
+        <table id="features-table">
+          <thead>
+            <tr><th>Признак</th><th>Описание</th><th>Значение</th></tr>
+          </thead>
+          <tbody id="features-tbody"></tbody>
+        </table>
+      </details>
+    </section>
+
+    <section id="about" class="about hidden">
+      <h3>О модели</h3>
+      <div class="about-grid" id="about-grid"></div>
+      <table class="metrics-table" id="metrics-table">
+        <thead><tr><th>Метрика</th><th>Значение</th></tr></thead>
+        <tbody id="metrics-tbody"></tbody>
+      </table>
+      <details>
+        <summary>Топ важных признаков</summary>
+        <div id="importances"></div>
+      </details>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      Учебный проект. Модель RandomForest обучена на датасете PhiUSIIL (UCI) и фиде OpenPhish ·
+      <a href="/docs" target="_blank" rel="noopener">Swagger-документация</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
